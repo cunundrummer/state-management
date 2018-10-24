@@ -1,16 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppComponent } from './app.component';
+import { DebugInfoComponent } from './debug-info/debug-info.component';
+
+import { GlobalService } from './shared-services/global.service';
+import { LocationService } from './shared-services/location.service';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DebugInfoComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    GlobalService,
+    LocationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

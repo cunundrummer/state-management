@@ -1,0 +1,50 @@
+<h3>DEBUG-INFORMATION</h3>
+<div id='locationCookieCookie' *ngIf="(locationCookie$ | async) as locationCookie">
+  <h4>Location Cookie</h4>
+  <div>
+    name: {{locationCookie.name}}
+    <br />
+    value: {{locationCookie.value || 'No values set - check state'}}
+  </div>
+  <div id="locationCookieState">
+    <h4>State:</h4>
+    state: {{locationCookie.cookieState.state}}
+    <br />
+    reason: {{locationCookie.cookieState.reason}}
+  </div>
+  <div id="locationCookieError">
+    <h4>Errors:</h4>
+    error: {{(locationCookie.error) || 'No errors'}}
+    <br />
+    reason: {{(locationCookie.reason) || 'No errors'}}
+  </div>
+</div>
+
+<div id="geolocation" *ngIf="(geolocation$ | async) as geolocation; else awaiting">
+  <h4>Geolocation</h4>
+  <div>
+    latitude: {{geolocation?.coords?.latitude}}<br />
+    longitude: {{geolocation?.coords?.longitude}}<br />
+    accuracy: {{geolocation?.coords?.accuracy}}<br />
+  </div>
+  <div id="geolocationStates">
+    <h4>State:</h4>
+    state: {{geolocation?.geolocationState.state}}<br />
+    reason: {{geolocation?.geolocationState.reason}}
+  </div>
+</div>
+
+<div id="userLocation">
+  <h4>User Location</h4>
+  <div *ngIf="(clientLocation$ | async) as clientLocation">
+    suburb: {{(clientLocation?.suburb)}}<br />
+    city: {{(clientLocation?.city)}}<br />
+    region: {{(clientLocation?.region)}}<br />
+    country: {{(clientLocation?.country)}}<br />
+    continent: N/a<br />
+  </div>
+</div>
+
+<ng-template #awaiting>
+  <div>loading geolocation...</div>
+</ng-template>

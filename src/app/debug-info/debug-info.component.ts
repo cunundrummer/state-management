@@ -49,6 +49,7 @@ export class DebugInfoComponent implements OnInit {
             console.log('truncating response...');
             location.location.splice(OFFSET, location.location.length - NUMBER_OF_ELEMENTS_TO_NOT_DELETE - OFFSET);
           }
+          // return only the first (closest) location.  All other info is derived from this data in the db.
           return {
             suburb: location.location[0].asciiname || 'N/a',
             city: location.location[0].CITY || location.location[0].REGION || 'N/a',

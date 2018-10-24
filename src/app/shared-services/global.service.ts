@@ -23,7 +23,6 @@ export class GlobalService {
     geolocationState: {state: AcquiredStates.NOT_ACQUIRED, reason: 'Start up'},
     options: {enableHighAccuracy: true, maximumAge: Number.MAX_SAFE_INTEGER, timeout: Number.MAX_SAFE_INTEGER}
   } as IGeolocation;
-  private userLocation: any = {};
 
   constructor() {
     console.log('Global service initiated.');

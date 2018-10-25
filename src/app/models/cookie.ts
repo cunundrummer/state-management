@@ -9,7 +9,7 @@ export enum CookieStates {
 
 export interface ICookieError {
   error: number;
-  reason: CookieStates;
+  reason: CookieStates | string;
 }
 
 export interface ICookieState {

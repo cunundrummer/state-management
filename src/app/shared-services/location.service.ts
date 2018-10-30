@@ -1,9 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {catchError, finalize, tap} from 'rxjs/operators';
-import {BehaviorSubject, Observable, of} from 'rxjs';
+import {Observable, of} from 'rxjs';
 import {GlobalService} from './global.service';
-import {AcquiredStates} from '../models/acquired-states-enum';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +29,6 @@ export class LocationService {
 
     return this.http.get(HOST + 'locations', OPTIONS).pipe(
       tap(res => {
-        const OFFSET = 1; // for keeping the nearest suburb (calculated in db)
         console.log('received response from DB...');
         console.log(res);
       }),

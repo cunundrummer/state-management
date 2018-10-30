@@ -93,8 +93,4 @@ export class GlobalService {
         })
       );
   }
-
-  getGeolocation(): IGeolocation {
-    return this.geolocation;
-  }
 }

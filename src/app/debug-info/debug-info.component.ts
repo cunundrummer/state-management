@@ -1,10 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {GlobalService} from '../shared-services/global.service';
-import {BehaviorSubject, Observable, of} from 'rxjs';
+import {Observable} from 'rxjs';
 import {ICookie} from '../models/cookie';
 import {IGeolocation} from '../models/geolocation';
-import {distinctUntilChanged, map, share, switchMap, take, tap} from 'rxjs/operators';
-import {AcquiredStates} from '../models/acquired-states-enum';
+import {map, switchMap} from 'rxjs/operators';
 import {LocationService} from '../shared-services/location.service';
 
 @Component({
@@ -17,7 +16,6 @@ export class DebugInfoComponent implements OnInit {
   locationCookie$: Observable<ICookie>;
   geolocation$: Observable<IGeolocation>;
   clientLocation$: Observable<any>;
-  locationRetrieved$: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   constructor(private globalService: GlobalService, private locationService: LocationService) { }
 
